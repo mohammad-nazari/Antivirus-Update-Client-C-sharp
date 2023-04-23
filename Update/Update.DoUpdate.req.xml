@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:ns1="http://tempuri.org/ns1.xsd"
+  xmlns:ns="urn:Update">
+ <SOAP-ENV:Body>
+  <!-- ns__DoUpdate(..., ns1__UpdateArguments *UpdateInfo, ...) -->
+  <ns:DoUpdate>
+   <!-- ns1__UpdateArguments *UpdateInfo -->
+   <UpdateInfo>
+    <!-- std::string SessionCode -->
+    <SessionCode></SessionCode>
+    <!-- std::string UserKey -->
+    <UserKey></UserKey>
+    <!-- std::string HardSerial -->
+    <HardSerial></HardSerial>
+    <!-- std::string PreMasterKey -->
+    <PreMasterKey></PreMasterKey>
+    <!-- ns1__FileInfo FilesList -->
+    <FilesList>
+     <!-- std::string FileName -->
+     <FileName></FileName>
+     <!-- std::string FileSize -->
+     <FileSize></FileSize>
+     <!-- std::string FolderName -->
+     <FolderName></FolderName>
+    </FilesList>
+    <!-- ns1__ErrorInfo Error -->
+    <Error>
+     <!-- std::string ErrorNumber -->
+     <ErrorNumber></ErrorNumber>
+     <!-- std::string Error -->
+     <Error></Error>
+     <!-- std::string ErrorType -->
+     <ErrorType></ErrorType>
+    </Error>
+   </UpdateInfo>
+  </ns:DoUpdate>
+ </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

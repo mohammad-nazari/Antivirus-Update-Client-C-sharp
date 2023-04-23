@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <schema targetNamespace="http://tempuri.org/ns1.xsd"
+  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:ns1="http://tempuri.org/ns1.xsd"
+  xmlns:ns="urn:Update"
+  xmlns="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="unqualified"
+  attributeFormDefault="unqualified">
+  <import namespace="urn:Update"/>
+  <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+  <complexType name="FileInfo"><!-- ns1__FileInfo -->
+
+   <sequence>
+     <element name="FileName" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- ns1__FileInfo::FileName -->
+     <element name="FileSize" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- ns1__FileInfo::FileSize -->
+     <element name="FolderName" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- ns1__FileInfo::FolderName -->
+   </sequence>
+  </complexType>
+  <complexType name="UpdateArguments"><!-- ns1__UpdateArguments -->
+
+   <sequence>
+     <element name="SessionCode" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- ns1__UpdateArguments::SessionCode -->
+     <element name="UserKey" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- ns1__UpdateArguments::UserKey -->
+     <element name="HardSerial" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- ns1__UpdateArguments::HardSerial -->
+     <element name="PreMasterKey" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- ns1__UpdateArguments::PreMasterKey -->
+     <element name="FilesList" type="ns1:FileInfo" minOccurs="1" maxOccurs="1"/><!-- ns1__UpdateArguments::FilesList -->
+     <element name="Error" type="ns1:ErrorInfo" minOccurs="1" maxOccurs="1"/><!-- ns1__UpdateArguments::Error -->
+   </sequence>
+  </complexType>
+ </schema>
+

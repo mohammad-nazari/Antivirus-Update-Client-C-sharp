@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <schema targetNamespace="urn:Update"
+  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:ns1="http://tempuri.org/ns1.xsd"
+  xmlns:ns="urn:Update"
+  xmlns="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="unqualified"
+  attributeFormDefault="unqualified">
+  <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+  <!-- operation request element -->
+  <element name="RequestForUpdate">
+   <complexType>
+    <sequence>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="SessionInfo">
+   <complexType>
+    <sequence>
+     <element name="SessionCode" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- ns1__SessionInfo::SessionCode -->
+     <element name="PublicKey" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- ns1__SessionInfo::PublicKey -->
+     <element name="Error" type="ns1:ErrorInfo" minOccurs="1" maxOccurs="1"/><!-- ns1__SessionInfo::Error -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="MakeSecureConnection">
+   <complexType>
+    <sequence>
+     <element name="UpdateInfo" type="ns1:UpdateArguments" minOccurs="0" maxOccurs="1" nillable="true"/><!-- ns__MakeSecureConnection::UpdateInfo -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="UpdateFilesList">
+   <complexType>
+    <sequence>
+     <element name="FilesList" type="ns1:FileInfo" minOccurs="0" maxOccurs="unbounded"/><!-- ns1__UpdateFilesList::FilesList -->
+     <element name="Error" type="ns1:ErrorInfo" minOccurs="1" maxOccurs="1"/><!-- ns1__UpdateFilesList::Error -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="DoUpdate">
+   <complexType>
+    <sequence>
+     <element name="UpdateInfo" type="ns1:UpdateArguments" minOccurs="0" maxOccurs="1" nillable="true"/><!-- ns__DoUpdate::UpdateInfo -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="UpdateResponse">
+   <complexType>
+    <sequence>
+     <element name="FileContent" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- ns1__UpdateResponse::FileContent -->
+     <element name="Error" type="ns1:ErrorInfo" minOccurs="1" maxOccurs="1"/><!-- ns1__UpdateResponse::Error -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="EndUpdate">
+   <complexType>
+    <sequence>
+     <element name="UpdateInfo" type="ns1:UpdateArguments" minOccurs="0" maxOccurs="1" nillable="true"/><!-- ns__EndUpdate::UpdateInfo -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="ErrorInfo">
+   <complexType>
+    <sequence>
+     <element name="ErrorNumber" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- ns1__ErrorInfo::ErrorNumber -->
+     <element name="Error" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- ns1__ErrorInfo::Error -->
+     <element name="ErrorType" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- ns1__ErrorInfo::ErrorType -->
+    </sequence>
+   </complexType>
+  </element>
+ </schema>
+

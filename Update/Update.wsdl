@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="Update"
+ targetNamespace="urn:Update"
+ xmlns:tns="urn:Update"
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+ xmlns:ns1="http://tempuri.org/ns1.xsd"
+ xmlns:ns="urn:Update"
+ xmlns:SOAP="http://schemas.xmlsoap.org/wsdl/soap/"
+ xmlns:HTTP="http://schemas.xmlsoap.org/wsdl/http/"
+ xmlns:MIME="http://schemas.xmlsoap.org/wsdl/mime/"
+ xmlns:DIME="http://schemas.xmlsoap.org/ws/2002/04/dime/wsdl/"
+ xmlns:WSDL="http://schemas.xmlsoap.org/wsdl/"
+ xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+<types>
+
+ <schema targetNamespace="http://tempuri.org/ns1.xsd"
+  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:ns1="http://tempuri.org/ns1.xsd"
+  xmlns:ns="urn:Update"
+  xmlns="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="unqualified"
+  attributeFormDefault="unqualified">
+  <import namespace="urn:Update"/>
+  <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+  <complexType name="FileInfo"><!-- ns1__FileInfo -->
+
+   <sequence>
+     <element name="FileName" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- ns1__FileInfo::FileName -->
+     <element name="FileSize" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- ns1__FileInfo::FileSize -->
+     <element name="FolderName" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- ns1__FileInfo::FolderName -->
+   </sequence>
+  </complexType>
+  <complexType name="UpdateArguments"><!-- ns1__UpdateArguments -->
+
+   <sequence>
+     <element name="SessionCode" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- ns1__UpdateArguments::SessionCode -->
+     <element name="UserKey" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- ns1__UpdateArguments::UserKey -->
+     <element name="HardSerial" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- ns1__UpdateArguments::HardSerial -->
+     <element name="PreMasterKey" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- ns1__UpdateArguments::PreMasterKey -->
+     <element name="FilesList" type="ns1:FileInfo" minOccurs="1" maxOccurs="1"/><!-- ns1__UpdateArguments::FilesList -->
+     <element name="Error" type="ns1:ErrorInfo" minOccurs="1" maxOccurs="1"/><!-- ns1__UpdateArguments::Error -->
+   </sequence>
+  </complexType>
+ </schema>
+
+ <schema targetNamespace="urn:Update"
+  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:ns1="http://tempuri.org/ns1.xsd"
+  xmlns:ns="urn:Update"
+  xmlns="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="unqualified"
+  attributeFormDefault="unqualified">
+  <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+  <!-- operation request element -->
+  <element name="RequestForUpdate">
+   <complexType>
+    <sequence>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="SessionInfo">
+   <complexType>
+    <sequence>
+     <element name="SessionCode" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- ns1__SessionInfo::SessionCode -->
+     <element name="PublicKey" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- ns1__SessionInfo::PublicKey -->
+     <element name="Error" type="ns1:ErrorInfo" minOccurs="1" maxOccurs="1"/><!-- ns1__SessionInfo::Error -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="MakeSecureConnection">
+   <complexType>
+    <sequence>
+     <element name="UpdateInfo" type="ns1:UpdateArguments" minOccurs="0" maxOccurs="1" nillable="true"/><!-- ns__MakeSecureConnection::UpdateInfo -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="UpdateFilesList">
+   <complexType>
+    <sequence>
+     <element name="FilesList" type="ns1:FileInfo" minOccurs="0" maxOccurs="unbounded"/><!-- ns1__UpdateFilesList::FilesList -->
+     <element name="Error" type="ns1:ErrorInfo" minOccurs="1" maxOccurs="1"/><!-- ns1__UpdateFilesList::Error -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="DoUpdate">
+   <complexType>
+    <sequence>
+     <element name="UpdateInfo" type="ns1:UpdateArguments" minOccurs="0" maxOccurs="1" nillable="true"/><!-- ns__DoUpdate::UpdateInfo -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="UpdateResponse">
+   <complexType>
+    <sequence>
+     <element name="FileContent" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- ns1__UpdateResponse::FileContent -->
+     <element name="Error" type="ns1:ErrorInfo" minOccurs="1" maxOccurs="1"/><!-- ns1__UpdateResponse::Error -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="EndUpdate">
+   <complexType>
+    <sequence>
+     <element name="UpdateInfo" type="ns1:UpdateArguments" minOccurs="0" maxOccurs="1" nillable="true"/><!-- ns__EndUpdate::UpdateInfo -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="ErrorInfo">
+   <complexType>
+    <sequence>
+     <element name="ErrorNumber" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- ns1__ErrorInfo::ErrorNumber -->
+     <element name="Error" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- ns1__ErrorInfo::Error -->
+     <element name="ErrorType" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- ns1__ErrorInfo::ErrorType -->
+    </sequence>
+   </complexType>
+  </element>
+ </schema>
+
+</types>
+
+<message name="RequestForUpdate">
+ <part name="Body" element="ns:RequestForUpdate"/><!-- ns__RequestForUpdate::ns__RequestForUpdate -->
+</message>
+
+<message name="SessionInfo">
+ <part name="Body" element="ns1:SessionInfo"/><!-- ns__RequestForUpdate::response -->
+</message>
+
+<message name="MakeSecureConnection">
+ <part name="Body" element="ns:MakeSecureConnection"/><!-- ns__MakeSecureConnection::ns__MakeSecureConnection -->
+</message>
+
+<message name="UpdateFilesList">
+ <part name="Body" element="ns1:UpdateFilesList"/><!-- ns__MakeSecureConnection::response -->
+</message>
+
+<message name="DoUpdate">
+ <part name="Body" element="ns:DoUpdate"/><!-- ns__DoUpdate::ns__DoUpdate -->
+</message>
+
+<message name="UpdateResponse">
+ <part name="Body" element="ns1:UpdateResponse"/><!-- ns__DoUpdate::response -->
+</message>
+
+<message name="EndUpdate">
+ <part name="Body" element="ns:EndUpdate"/><!-- ns__EndUpdate::ns__EndUpdate -->
+</message>
+
+<message name="ErrorInfo">
+ <part name="Body" element="ns1:ErrorInfo"/><!-- ns__EndUpdate::response -->
+</message>
+
+<portType name="UpdatePortType">
+ <operation name="RequestForUpdate">
+  <documentation>Service definition of function ns__RequestForUpdate</documentation>
+  <input message="tns:RequestForUpdate"/>
+  <output message="tns:SessionInfo"/>
+ </operation>
+ <operation name="MakeSecureConnection">
+  <documentation>Service definition of function ns__MakeSecureConnection</documentation>
+  <input message="tns:MakeSecureConnection"/>
+  <output message="tns:UpdateFilesList"/>
+ </operation>
+ <operation name="DoUpdate">
+  <documentation>Service definition of function ns__DoUpdate</documentation>
+  <input message="tns:DoUpdate"/>
+  <output message="tns:UpdateResponse"/>
+ </operation>
+ <operation name="EndUpdate">
+  <documentation>Service definition of function ns__EndUpdate</documentation>
+  <input message="tns:EndUpdate"/>
+  <output message="tns:ErrorInfo"/>
+ </operation>
+</portType>
+
+<binding name="Update" type="tns:UpdatePortType">
+ <SOAP:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+ <operation name="RequestForUpdate">
+  <SOAP:operation soapAction=""/>
+  <input>
+     <SOAP:body parts="Body" use="literal"/>
+  </input>
+  <output>
+     <SOAP:body parts="Body" use="literal"/>
+  </output>
+ </operation>
+ <operation name="MakeSecureConnection">
+  <SOAP:operation soapAction=""/>
+  <input>
+     <SOAP:body parts="Body" use="literal"/>
+  </input>
+  <output>
+     <SOAP:body parts="Body" use="literal"/>
+  </output>
+ </operation>
+ <operation name="DoUpdate">
+  <SOAP:operation soapAction=""/>
+  <input>
+     <SOAP:body parts="Body" use="literal"/>
+  </input>
+  <output>
+     <SOAP:body parts="Body" use="literal"/>
+  </output>
+ </operation>
+ <operation name="EndUpdate">
+  <SOAP:operation soapAction=""/>
+  <input>
+     <SOAP:body parts="Body" use="literal"/>
+  </input>
+  <output>
+     <SOAP:body parts="Body" use="literal"/>
+  </output>
+ </operation>
+</binding>
+
+<service name="Update">
+ <documentation>gSOAP 2.8.17r generated service definition</documentation>
+ <port name="Update" binding="tns:Update">
+  <SOAP:address location="http://www.yourdomain.com/Update.cgi"/>
+ </port>
+</service>
+
+</definitions>

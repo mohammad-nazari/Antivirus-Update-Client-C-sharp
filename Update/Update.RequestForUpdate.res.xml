@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:ns1="http://tempuri.org/ns1.xsd"
+  xmlns:ns="urn:Update">
+ <SOAP-ENV:Body>
+  <!-- ns__RequestForUpdate(..., ns1__SessionInfo &response) -->
+  <ns1:SessionInfo>
+   <!-- std::string SessionCode -->
+   <SessionCode></SessionCode>
+   <!-- std::string PublicKey -->
+   <PublicKey></PublicKey>
+   <!-- ns1__ErrorInfo Error -->
+   <Error>
+    <!-- std::string ErrorNumber -->
+    <ErrorNumber></ErrorNumber>
+    <!-- std::string Error -->
+    <Error></Error>
+    <!-- std::string ErrorType -->
+    <ErrorType></ErrorType>
+   </Error>
+  </ns1:SessionInfo>
+ </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
